@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHOCO HOUSE</title>
+    <link rel="icon" type="image/png" href="./favicon.png?v=2" />
+    <link rel="shortcut icon" type="image/png" href="./favicon.png?v=2" />
+    <link rel="apple-touch-icon" href="./favicon.png?v=2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300..900;1,300..900&family=Charm:wght@400;700&family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Inter:wght@300..800&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Mulish:ital,wght@0,300..900;1,300..900&family=Noto+Sans:ital,wght@0,300..900;1,300..900&family=Noto+Serif:ital,wght@0,300..900;1,300..900&family=Nunito:ital,wght@0,300..900;1,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&family=Roboto+Slab:wght@300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&family=Source+Sans+3:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@300..700&family=Work+Sans:ital,wght@0,300..900;1,300..900&family=Pacifico&family=Dancing+Script:wght@400..700&family=Lobster&family=Bungee&family=Itim&family=Sriracha&family=Lexend:wght@300..900&family=Baloo+2:wght@400..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Pattaya&family=Arima:wght@300..700&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100..800;1,100..800&family=VT323&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        const CHAOS = ['§', '¶', '⁂', '₪', '⍼', '⧫', '⟡', '⊘', '⊗', '░', '▒', '▓', '█', '𒀱', '𒈙', '𓆩', '𓆪', '𖣘', '𖤍', '𑁍', '௵', 'ᚠ', 'ᚢ', 'ᚦ', 'ᚱ', '𝔄', 'ℭ', '𝔈', '𝔊', '𝔞', '𝔟', '𝔠', '⚔', '☠', '⚡', '✦', '✧', '≈', '≠', '≡', '⊞', '⊟'];
+        const TAGS = ['[ERR_PROTECTED]', '[0x7F4A]', '[DATA_OBFUSCATED]', '[C0PY_FAIL]', '[BẢN_QUYỀN_TRUYỆN]'];
+        
+        function scramble(text) {
+          if (!text) text = 'Nội dung truyện được bảo vệ bản quyền.';
+          const words = text.trim().split(/\s+/).filter(Boolean);
+          const shuffled = words.slice();
+          for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const t = shuffled[i]; shuffled[i] = shuffled[j]; shuffled[j] = t;
+          }
+          const mutated = shuffled.map(function(w) {
+            if (Math.random() < 0.25) return TAGS[Math.floor(Math.random() * TAGS.length)];
+            return Array.from(w).map(function(c) {
+              return Math.random() < 0.5 ? CHAOS[Math.floor(Math.random() * CHAOS.length)] : c + CHAOS[Math.floor(Math.random() * CHAOS.length)];
+            }).reverse().join('');
+          });
+          const seed = Date.now().toString(36).toUpperCase() + '_' + Math.floor(Math.random()*0xffff).toString(16).toUpperCase();
+          return mutated.join(' ') + '\n[⊘_ERR_' + seed + ']';
+        }
+
+        function isEdit(el) {
+          if (!el) return false;
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable) return true;
+          return !!(el.closest && el.closest('input, textarea, [contenteditable="true"], .monaco-editor, .story-editor-input'));
+        }
+
+        function intercept(e) {
+          const act = document.activeElement;
+          if (isEdit(act) || isEdit(e.target)) return;
+          e.preventDefault();
+          if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          if (e.stopPropagation) e.stopPropagation();
+          
+          let sel = '';
+          try { sel = window.getSelection ? (window.getSelection().toString() || '') : ''; } catch(_) {}
+          const chaos = scramble(sel);
+          if (e.clipboardData) {
+            e.clipboardData.clearData();
+            e.clipboardData.setData('text/plain', chaos);
+            e.clipboardData.setData('text/html', '<div style="font-family:monospace;">' + chaos + '</div>');
+          }
+        }
+
+        window.addEventListener('copy', intercept, true);
+        document.addEventListener('copy', intercept, true);
+        window.addEventListener('cut', intercept, true);
+        document.addEventListener('cut', intercept, true);
+      })();
+    </script>
+  </head>
+  <body class="bg-[#080406] text-[#e0d0d5] font-mono-code antialiased selection:bg-[#4a2835] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
+</html>

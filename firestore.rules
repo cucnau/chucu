@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /stories/{storyId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /chapters/{chapterId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /comments/{commentId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /bookmarks/{bookmarkId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /reading_history/{historyId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /global_users/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /block_leaderboard/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /game_2048_leaderboard/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /user_fonts/{fontId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

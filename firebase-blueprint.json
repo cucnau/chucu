@@ -1,0 +1,188 @@
+{
+  "entities": {
+    "Story": {
+      "title": "Story",
+      "description": "Bài viết / Tác phẩm truyện",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "coverUrl": { "type": "string" },
+        "synopsis": { "type": "string" },
+        "viewsCount": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "title", "author"]
+    },
+    "Chapter": {
+      "title": "Chapter",
+      "description": "Các chương/phần của tác phẩm",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "storyId": { "type": "string" },
+        "chapterNumber": { "type": "number" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "views": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "storyId", "title", "content"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "Bình luận của độc giả",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "storyId": { "type": "string" },
+        "chapterId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userUid": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "storyId", "content"]
+    },
+    "Bookmark": {
+      "title": "Bookmark",
+      "description": "Bài viết / Truyện đã lưu",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "storyId": { "type": "string" },
+        "userId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["storyId", "userId"]
+    },
+    "ReadingHistory": {
+      "title": "ReadingHistory",
+      "description": "Lịch sử đọc bài",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "storyId": { "type": "string" },
+        "chapterId": { "type": "string" },
+        "chapterNumber": { "type": "number" },
+        "userId": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["storyId", "chapterId", "userId"]
+    },
+    "GlobalUser": {
+      "title": "GlobalUser",
+      "description": "Thông tin tài khoản người dùng",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" }
+      },
+      "required": ["uid"]
+    },
+    "EditorRequest": {
+      "title": "EditorRequest",
+      "description": "Yêu cầu xin quyền làm Editor",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "email", "status"]
+    },
+    "BlockLeaderboardEntry": {
+      "title": "BlockLeaderboardEntry",
+      "description": "Bảng xếp hạng kỷ lục điểm game Block",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "highScore": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "displayName", "highScore"]
+    },
+    "Game2048LeaderboardEntry": {
+      "title": "Game2048LeaderboardEntry",
+      "description": "Bảng xếp hạng kỷ lục điểm game 2048 Vô Tận",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "highScore": { "type": "number" },
+        "maxTile": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "displayName", "highScore", "maxTile"]
+    },
+    "UserFont": {
+      "title": "UserFont",
+      "description": "Font chữ cá nhân tự tải lên của người dùng",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "value": { "type": "string" },
+        "fileData": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "name", "value", "fileData"]
+    }
+  },
+  "firestore": {
+    "/user_fonts/{fontId}": {
+      "schema": "UserFont",
+      "description": "Danh sách các font chữ cá nhân tự tải lên của người dùng"
+    },
+    "/stories/{storyId}": {
+      "schema": "Story",
+      "description": "Danh sách các tác phẩm truyện/bài viết"
+    },
+    "/chapters/{chapterId}": {
+      "schema": "Chapter",
+      "description": "Danh sách các chương của tác phẩm"
+    },
+    "/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Danh sách các bình luận"
+    },
+    "/bookmarks/{bookmarkId}": {
+      "schema": "Bookmark",
+      "description": "Truyện đã lưu của người dùng"
+    },
+    "/reading_history/{historyId}": {
+      "schema": "ReadingHistory",
+      "description": "Lịch sử đọc của người dùng"
+    },
+    "/global_users/{userId}": {
+      "schema": "GlobalUser",
+      "description": "Danh bạ người dùng"
+    },
+    "/editor_requests/{userId}": {
+      "schema": "EditorRequest",
+      "description": "Yêu cầu xin quyền làm Editor của người dùng"
+    },
+    "/block_leaderboard/{userId}": {
+      "schema": "BlockLeaderboardEntry",
+      "description": "Bảng xếp hạng kỷ lục điểm game Block"
+    },
+    "/game_2048_leaderboard/{userId}": {
+      "schema": "Game2048LeaderboardEntry",
+      "description": "Bảng xếp hạng kỷ lục điểm game 2048 Vô Tận"
+    }
+  }
+}

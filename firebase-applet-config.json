@@ -1,0 +1,12 @@
+{
+  "projectId": "chocoatl",
+  "appId": "1:928517107154:web:e6413639b57487002bac0b",
+  "apiKey": "AIzaSyCm1OtzwjNWKwnqmu92Oy59FPCp0lvAIdc",
+  "authDomain": "chocoatl.firebaseapp.com",
+  "firestoreDatabaseId": "(default)",
+  "storageBucket": "chocoatl.firebasestorage.app",
+  "messagingSenderId": "928517107154",
+  "measurementId": "G-SQ20JSWYRZ",
+  "oAuthClientId": "89056395868-a3ljstv0v599vjd3kp0lastn3aefm48n.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
+}

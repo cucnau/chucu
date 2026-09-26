@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <title>Đang chuyển hướng...</title>
+    <script>
+      // Single Page Apps for GitHub Pages
+      // Tự động chuyển hướng các trang con về index.html khi reload trên GitHub Pages
+      (function() {
+        var l = window.location;
+        var isGitHubPages = l.hostname.indexOf('github.io') > -1;
+        var pathSegments = l.pathname.split('/').filter(Boolean);
+        var repoSegment = isGitHubPages && pathSegments.length > 0 ? '/' + pathSegments[0] : '';
+        
+        var subPath = isGitHubPages && repoSegment ? l.pathname.slice(repoSegment.length) : l.pathname;
+        var redirectUrl = l.protocol + '//' + l.host + repoSegment + '/?' + encodeURIComponent(subPath + l.search) + l.hash;
+        l.replace(redirectUrl);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Đang tải trang...</p>
+  </body>
+</html>

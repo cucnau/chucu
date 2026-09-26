@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -i 's/className="group relative h-48 sm:h-56 shrink-0 cursor-pointer transition-all duration-300 hover:opacity-90 snap-center flex items-center justify-center"/className="group relative shrink-0 cursor-pointer transition-all duration-300 hover:opacity-90 snap-center flex items-center justify-center"\n              style={{ height: `${story.galleryImageSize ? (story.galleryImageSize * 1.9) : 192}px` }}/g' src/components/StoryBlocks.tsx

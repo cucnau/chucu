@@ -1,0 +1,1025 @@
+@import "tailwindcss";
+
+/* react-colorful custom styles */
+.react-colorful {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 150px;
+  user-select: none;
+  cursor: default;
+}
+
+.react-colorful__saturation {
+  position: relative;
+  flex-grow: 1;
+  border-radius: 4px;
+  border-bottom: 10px solid transparent;
+}
+
+.react-colorful__hue {
+  position: relative;
+  height: 12px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.react-colorful__saturation-pointer,
+.react-colorful__hue-pointer {
+  position: absolute;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+@theme {
+  --font-mono-code: 'JetBrains Mono', monospace;
+  --font-pixel: 'JetBrains Mono', monospace;
+  --font-tech: 'JetBrains Mono', monospace;
+  --font-orbitron: 'JetBrains Mono', monospace;
+  --font-serif: 'Lora', 'EB Garamond', 'Noto Serif', 'Times New Roman', serif;
+  --font-sans: 'Be Vietnam Pro', 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  input, textarea, [contenteditable="true"], .allow-select, .selectable-text {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+}
+
+@layer utilities {
+  .font-pixel {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .font-tech {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .font-orbitron {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .font-serif {
+    font-family: 'Lora', 'EB Garamond', 'Noto Serif', 'Times New Roman', serif !important;
+  }
+
+  /* Vietnamese Typography Support */
+  .font-bevietnam {
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+  .font-times {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .font-lora {
+    font-family: 'Lora', serif;
+  }
+  .font-garamond {
+    font-family: 'EB Garamond', serif;
+  }
+  .font-merriweather {
+    font-family: 'Merriweather', serif;
+  }
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-notoserif {
+    font-family: 'Noto Serif', serif;
+  }
+  .font-robotoslab {
+    font-family: 'Roboto Slab', serif;
+  }
+  .font-opensans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .font-nunito {
+    font-family: 'Nunito', sans-serif;
+  }
+  .font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+  }
+  .font-mulish {
+    font-family: 'Mulish', sans-serif;
+  }
+  .font-notosans {
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .font-sourcesans {
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .font-worksans {
+    font-family: 'Work Sans', sans-serif;
+  }
+  .font-sarabun {
+    font-family: 'Sarabun', 'Be Vietnam Pro', 'Inter', sans-serif;
+  }
+  .font-charm {
+    font-family: 'Charm', cursive;
+  }
+  .font-patrick {
+    font-family: 'Patrick Hand', cursive;
+  }
+  .font-pacifico {
+    font-family: 'Pacifico', cursive;
+  }
+  .font-dancing {
+    font-family: 'Dancing Script', cursive;
+  }
+  .font-lobster {
+    font-family: 'Lobster', cursive;
+  }
+  .font-bungee {
+    font-family: 'Bungee', sans-serif;
+  }
+  .font-vt323 {
+    font-family: 'VT323', 'Inconsolata', 'JetBrains Mono', monospace;
+  }
+  .font-itim {
+    font-family: 'Itim', cursive;
+  }
+  .font-sriracha {
+    font-family: 'Sriracha', cursive;
+  }
+  .font-lexend {
+    font-family: 'Lexend', sans-serif;
+  }
+  .font-baloo {
+    font-family: 'Baloo 2', sans-serif;
+  }
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .font-pattaya {
+    font-family: 'Pattaya', sans-serif;
+  }
+  .font-arima {
+    font-family: 'Arima', system-ui;
+  }
+  .font-cabinsketch {
+    font-family: 'Cabin Sketch', 'Pangolin', 'Patrick Hand', cursive;
+  }
+  .font-comfortaa {
+    font-family: 'Comfortaa', sans-serif;
+  }
+
+  .font-title {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .font-body {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Chocolate Box Theme */
+  .choco-box {
+    background-color: #11090c;
+    border: 1px solid #2d1822;
+  }
+  .choco-box-hover {
+    transition: all 0.2s ease;
+  }
+  .choco-box-hover:hover {
+    border-color: #522d3d;
+    background-color: #160c10;
+  }
+  .choco-header {
+    background-color: #160c10;
+    border-bottom: 1px solid #2d1822;
+  }
+  .choco-input {
+    background-color: #170d12;
+    border: 1px solid #361f2c;
+    color: #e8dadf;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .choco-input:focus {
+    border-color: #783d58;
+    outline: none;
+  }
+  .choco-btn {
+    background-color: #160c10;
+    border: 1px solid #3a1e2d;
+    color: #e0d0d5;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s ease;
+  }
+  .choco-btn:hover {
+    background-color: #2a1621;
+    border-color: #63334a;
+    color: #e8d0d8;
+  }
+  .choco-btn-primary {
+    background-color: #3d1c2b;
+    border: 1px solid #733351;
+    color: #ffd6e2;
+  }
+  .choco-btn-primary:hover {
+    background-color: #57253d;
+    border-color: #9e466f;
+    color: #e8d0d8;
+  }
+
+  /* Chocolate Light Mode Theme Overrides */
+  .light-mode:not(.preserve-story-theme) {
+    color-scheme: light;
+    background-color: #f8f3ee !important;
+    color: #3d2314 !important;
+  }
+
+  /* Page & Base Canvas Backgrounds (Excludes Story Themes) */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#080406]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#0d0608]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#0e070a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#10050a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#10060b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#10070a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#10080c]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#120307]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#12060b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#12060c]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#12070d]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#12080d]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#12090c]"] {
+    background-color: #f8f3ee !important;
+  }
+
+  /* Main Card Containers & Headers (Ranking, Chat, Comments, Checkin, Library, News, Modals) */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *).choco-box,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#11090c]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#13070b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#14080e]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#140a0f]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#140e0c]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#150a0f]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#150b10]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#150d15]"] {
+    background-color: #fffcf9 !important;
+    border-color: #e8d5c8 !important;
+    color: #3d2314 !important;
+    box-shadow: 0 1px 3px rgba(140, 94, 66, 0.04) !important;
+  }
+
+  /* Inner Item Rows & Sub-cards */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#160a0f]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#160a10]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#160c10]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#170c12]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#170d12]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#170e17]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#180801]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#180a11]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#180a12]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#180b12]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#180c12]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#180e14]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1a0e14]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1a110e]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1a111a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1a1219]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1b0a12]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1b0c15]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1b1016]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1c0a13]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1c0c16]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1c0f15]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1e0e17]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1f0f17]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1f0f18]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1f1017]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1f131f]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1f141f]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#1f1512]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#200b12]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#200d18]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#220e1b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#221019]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#221622]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#230a0d]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#23121b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#24080e]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#241018]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#241119]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#25101b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#26101c]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#261220]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#261510]"] {
+    background-color: #f9f4ee !important;
+    border-color: #e8d5c8 !important;
+    color: #3d2314 !important;
+  }
+
+  /* Interactive Hover States for Item Cards */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="hover:bg-[#1"]:hover,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="hover:bg-[#2"]:hover,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="hover:bg-[#3"]:hover,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *).choco-box-hover:hover {
+    background-color: #f3e8dd !important;
+    border-color: #d9c4b5 !important;
+  }
+
+  /* Badges, Rank Numbers (#1, #2), Active Tabs & Small Pill Chips */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#280c1b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#281220]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#281622]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2a1205]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2a131f]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2a1321]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2a1621]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2a1a0a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2b1620]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2b1b10]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2b1c2b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2b1e2a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2d1222]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2d1822]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#2e1d17]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#30121b]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#30222a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#321724]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#341525]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#380b15]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3b1219]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3b1226]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3b172a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3d1828]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3d1a04]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3d1a30]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3d1e2c]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3e141a]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#3f192e]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="bg-[#471b20]"] {
+    background-color: #ebdcd0 !important;
+    border-color: #d9c4b5 !important;
+    color: #3d2314 !important;
+  }
+
+  /* Specific Chat Bubbles */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *).lounge-chat-bubble-me,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *).lounge-chat-bubble-other {
+    color: #3d2314 !important;
+  }
+
+  /* Primary Accent Buttons & Highlights */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *).choco-btn-primary {
+    background-color: #8c5332 !important;
+    border-color: #6e3e23 !important;
+    color: #ffffff !important;
+  }
+
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *).choco-btn-primary:hover,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="hover:bg-[#57253d]"]:hover {
+    background-color: #6e3e23 !important;
+    border-color: #522d18 !important;
+    color: #ffffff !important;
+  }
+
+  /* General Borders across components */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="border-[#1]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="border-[#2]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="border-[#3]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="border-[#4]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="border-[#5]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="border-[#6]"],
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *)[class*="border-[#7]"] {
+    border-color: #e8d5c8 !important;
+  }
+
+  /* Main / Heading / High-contrast Text inside light mode containers */
+  .light-mode:not(.preserve-story-theme) .choco-box,
+  .light-mode:not(.preserve-story-theme) .choco-box h1,
+  .light-mode:not(.preserve-story-theme) .choco-box h2,
+  .light-mode:not(.preserve-story-theme) .choco-box h3,
+  .light-mode:not(.preserve-story-theme) .choco-box h4,
+  .light-mode:not(.preserve-story-theme) .choco-box p:not([class*="text-"]),
+  .light-mode:not(.preserve-story-theme) .choco-card {
+    color: #2b141e;
+  }
+
+  /* Form controls & Inputs in light mode */
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *).choco-input,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) input.choco-input,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) textarea.choco-input {
+    background-color: #fffcf9 !important;
+    color: #2b141e !important;
+    border-color: #e8d5c8 !important;
+  }
+
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) .choco-input::placeholder,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) input.choco-input::placeholder,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) textarea.choco-input::placeholder {
+    color: #8c5e42 !important;
+    opacity: 0.85;
+  }
+
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) .choco-input:focus,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) input.choco-input:focus,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) textarea.choco-input:focus,
+  .light-mode :not(.preserve-story-theme):not(.preserve-story-theme *) select.choco-input:focus {
+    border-color: #a8836b !important;
+  }
+
+  /* Story Themes: Preserve theme colors for inputs and placeholders */
+  .preserve-story-theme input::placeholder,
+  .preserve-story-theme textarea::placeholder,
+  .preserve-story-theme ::placeholder,
+  [data-story-theme] input::placeholder,
+  [data-story-theme] textarea::placeholder,
+  .story-theme-container input::placeholder,
+  .story-theme-container textarea::placeholder {
+    color: inherit !important;
+    opacity: 0.55 !important;
+  }
+
+  /* Forum, Lounge Chat & Comment Links Color Styling */
+  .forum-link,
+  .lounge-link,
+  .comment-link {
+    color: #e879f9 !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+    word-break: break-all !important;
+    transition: color 0.15s ease !important;
+  }
+  .forum-link:hover,
+  .lounge-link:hover,
+  .comment-link:hover {
+    color: #fbcfe8 !important;
+  }
+
+  .light-mode .forum-link,
+  .light-mode .lounge-link,
+  .light-mode .comment-link,
+  .light-mode:not(.preserve-story-theme) a.forum-link,
+  .light-mode:not(.preserve-story-theme) a.lounge-link,
+  .light-mode:not(.preserve-story-theme) a.comment-link {
+    color: #c026d3 !important; /* Màu hồng tím sẫm nổi bật rõ ràng trên nền sáng */
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+  }
+  .light-mode .forum-link:hover,
+  .light-mode .lounge-link:hover,
+  .light-mode .comment-link:hover,
+  .light-mode:not(.preserve-story-theme) a.forum-link:hover,
+  .light-mode:not(.preserve-story-theme) a.lounge-link:hover,
+  .light-mode:not(.preserve-story-theme) a.comment-link:hover {
+    color: #9333ea !important;
+  }
+}
+
+/* Hide scrollbars globally while preserving scroll functionality */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Gallery Album Moving Strip Animation */
+@keyframes continuousScrollAlbum {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-strip-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.gallery-strip-track-moving {
+  animation: continuousScrollAlbum 25s linear infinite;
+}
+
+.gallery-strip-track-slow {
+  animation-duration: 40s;
+}
+
+.gallery-strip-track-normal {
+  animation-duration: 25s;
+}
+
+.gallery-strip-track-fast {
+  animation-duration: 15s;
+}
+
+.gallery-strip-track:hover,
+.gallery-strip-paused {
+  animation-play-state: paused !important;
+}
+
+/* Minesweeper Theme Harmonization in Light Mode */
+.light-mode .minesweeper-machine {
+  background-color: #fcf8f5 !important;
+  border-color: #e8d5c8 !important;
+}
+
+.light-mode .minesweeper-dashboard {
+  background-color: #f3e8dd !important;
+  border-color: #d9c4b5 !important;
+}
+
+.light-mode .minesweeper-led {
+  background-color: #1a0a12 !important;
+  border-color: #5e283c !important;
+  color: #ff4d79 !important;
+}
+
+.light-mode .minesweeper-reset-btn {
+  background-color: #f8f3ee !important;
+  border-color: #d9c4b5 !important;
+  color: #8c5332 !important;
+}
+
+.light-mode .minesweeper-reset-btn:hover {
+  background-color: #eddcd2 !important;
+  border-color: #8c5332 !important;
+}
+
+.light-mode .minesweeper-board-wrapper {
+  background-color: #eddcd2 !important;
+  border-color: #cbb4a4 !important;
+}
+
+.light-mode .minesweeper-grid {
+  background-color: #cbb4a4 !important;
+}
+
+.light-mode .minesweeper-cell-unrevealed {
+  background-color: #ebdcd0 !important;
+  border-top-color: #ffffff !important;
+  border-left-color: #ffffff !important;
+  border-bottom-color: #bfa796 !important;
+  border-right-color: #bfa796 !important;
+}
+
+.light-mode .minesweeper-cell-unrevealed-alt {
+  background-color: #e6d4c6 !important;
+  border-top-color: #ffffff !important;
+  border-left-color: #ffffff !important;
+  border-bottom-color: #bfa796 !important;
+  border-right-color: #bfa796 !important;
+}
+
+.light-mode .minesweeper-cell-unrevealed:hover,
+.light-mode .minesweeper-cell-unrevealed-alt:hover {
+  background-color: #f3e8dd !important;
+}
+
+.light-mode .minesweeper-cell-revealed-even {
+  background-color: #fffcf9 !important;
+}
+
+.light-mode .minesweeper-cell-revealed-odd {
+  background-color: #f7efe7 !important;
+}
+
+.light-mode .minesweeper-cell-flagged {
+  background-color: #f7efe7 !important;
+  border-color: #f472b6 !important;
+}
+
+.light-mode .minesweeper-cell-mine-unexploded {
+  background-color: #fce7f3 !important;
+  color: #db2777 !important;
+}
+
+.light-mode .minesweeper-cell-mine-wrong {
+  background-color: #fee2e2 !important;
+  color: #ef4444 !important;
+}
+
+.light-mode .minesweeper-num-1 { color: #1d4ed8 !important; }
+.light-mode .minesweeper-num-2 { color: #15803d !important; }
+.light-mode .minesweeper-num-3 { color: #dc2626 !important; }
+.light-mode .minesweeper-num-4 { color: #7c3aed !important; }
+.light-mode .minesweeper-num-5 { color: #c2410c !important; }
+.light-mode .minesweeper-num-6 { color: #0d9488 !important; }
+.light-mode .minesweeper-num-7 { color: #be185d !important; }
+.light-mode .minesweeper-num-8 { color: #475569 !important; }
+
+/* Sudoku Light Mode */
+.light-mode .sudoku-board-box {
+  background-color: #94a3b8 !important;
+  border-color: #64748b !important;
+}
+
+.light-mode .sudoku-cell-default {
+  background-color: #ffffff !important;
+}
+
+.light-mode .sudoku-cell-selected {
+  background-color: #fbcfe8 !important;
+}
+
+.light-mode .sudoku-cell-same-number {
+  background-color: #e0f2fe !important;
+}
+
+.light-mode .sudoku-cell-same-group {
+  background-color: #f8fafc !important;
+}
+
+.light-mode .sudoku-cell-wrong {
+  background-color: #fee2e2 !important;
+}
+
+.light-mode .sudoku-text-initial {
+  color: #0f172a !important;
+}
+
+.light-mode .sudoku-text-user {
+  color: #0284c7 !important;
+}
+
+.light-mode .sudoku-text-wrong {
+  color: #dc2626 !important;
+}
+
+/* Tetris Light Mode Overrides */
+.light-mode .tetris-panel {
+  background-color: #fffcf9 !important;
+  border-color: #e8d5c8 !important;
+  box-shadow: 0 1px 4px rgba(140, 94, 66, 0.08) !important;
+}
+
+.light-mode .tetris-board-frame {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-mode .tetris-board-grid {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .tetris-cell-empty {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .tetris-dot {
+  background-color: #cbd5e1 !important;
+}
+
+.light-mode .tetris-cell-ghost {
+  border-color: rgba(168, 85, 247, 0.5) !important;
+  background-color: rgba(168, 85, 247, 0.12) !important;
+}
+
+.light-mode .tetris-btn {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+.light-mode .tetris-btn:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-mode .tetris-text-main {
+  color: #1e293b !important;
+}
+
+.light-mode .tetris-text-muted {
+  color: #64748b !important;
+}
+
+/* Sliding Block Game Light Mode Overrides */
+.light-mode .slideblock-panel {
+  background-color: #fffcf9 !important;
+  border-color: #e8d5c8 !important;
+  box-shadow: 0 1px 4px rgba(140, 94, 66, 0.08) !important;
+}
+
+.light-mode .slideblock-board-frame {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-mode .slideblock-board-grid {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .slideblock-cell-empty {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .slideblock-btn {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+.light-mode .slideblock-btn:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-mode .slideblock-text-main {
+  color: #1e293b !important;
+}
+
+.light-mode .slideblock-text-muted {
+  color: #64748b !important;
+}
+
+.light-mode .slideblock-gameover-modal {
+  background-color: rgba(255, 252, 249, 0.96) !important;
+  border-color: #f59e0b !important;
+}
+
+.light-mode .slideblock-gameover-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.light-mode .slideblock-gameover-val {
+  color: #0f172a !important;
+}
+
+/* JJWXC Rankings Hub High-Contrast Colors & Typography */
+.jjwxc-bg-card {
+  background-color: #14080e !important;
+  border-color: #381928 !important;
+}
+.jjwxc-bg-surface {
+  background-color: #1c0c16 !important;
+  border-color: #4a2135 !important;
+}
+.jjwxc-border {
+  border-color: #381928 !important;
+}
+.jjwxc-text-main {
+  color: #ffffff !important;
+}
+.jjwxc-text-sub {
+  color: #fbcfe8 !important;
+}
+.jjwxc-text-muted {
+  color: #f472b6 !important;
+}
+
+/* Rank Badge (#4, #5...) on book cover */
+.jjwxc-rank-badge {
+  background-color: rgba(22, 10, 17, 0.88) !important;
+  border-color: #52253c !important;
+  color: #ffffff !important;
+}
+
+/* Count badge on ranking tabs (12, 100...) */
+.jjwxc-count-pill {
+  background-color: #2b1320 !important;
+  border-color: #52253c !important;
+  color: #fce7f3 !important;
+}
+
+/* Tag buttons (# Vô hạn lưu, # Cả đôi đều mạnh...) */
+.jjwxc-tag-pill {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  color: #6ee7b7 !important;
+}
+.jjwxc-tag-pill:hover {
+  background-color: rgba(16, 185, 129, 0.25) !important;
+  color: #a7f3d0 !important;
+}
+
+/* Status Badges */
+.jjwxc-status-completed {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  color: #6ee7b7 !important;
+}
+.jjwxc-status-ongoing {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+  border-color: rgba(59, 130, 246, 0.45) !important;
+  color: #93c5fd !important;
+}
+
+/* Intro snippet box */
+.jjwxc-intro-box {
+  background-color: rgba(28, 12, 22, 0.8) !important;
+  border-color: #4a2135 !important;
+  color: #fce7f3 !important;
+}
+
+/* Close & Action Buttons */
+.jjwxc-btn-close {
+  background-color: #2a1320 !important;
+  border-color: #52253c !important;
+  color: #ffffff !important;
+}
+.jjwxc-btn-close:hover {
+  background-color: #3d1a2f !important;
+}
+
+/* Light Mode Overrides for JJWXC Rankings Hub */
+.light-mode .jjwxc-bg-card {
+  background-color: #ffffff !important;
+  border-color: #e8d5c8 !important;
+}
+.light-mode .jjwxc-bg-surface {
+  background-color: #fbf5ee !important;
+  border-color: #e2cebf !important;
+}
+.light-mode .jjwxc-border {
+  border-color: #e8d5c8 !important;
+}
+.light-mode .jjwxc-text-main {
+  color: #23121b !important;
+}
+.light-mode .jjwxc-text-sub {
+  color: #5a2c41 !important;
+}
+.light-mode .jjwxc-text-muted {
+  color: #6b2e4d !important;
+  font-weight: 700 !important;
+}
+
+/* Light Mode Rank Badge on Cover */
+.light-mode .jjwxc-rank-badge {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #d9c4b5 !important;
+  color: #23121b !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Light Mode Count Badge (12, 100...) */
+.light-mode .jjwxc-count-pill {
+  background-color: #f0e2d5 !important;
+  border-color: #d9c4b5 !important;
+  color: #2b141e !important;
+}
+
+/* Light Mode Tag Pills - Clear, Dark Emerald, No eye-strain */
+.light-mode .jjwxc-tag-pill {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #047857 !important;
+  font-weight: 700 !important;
+}
+.light-mode .jjwxc-tag-pill:hover {
+  background-color: #d1fae5 !important;
+  border-color: #6ee7b7 !important;
+  color: #065f46 !important;
+}
+
+/* Light Mode Status Badges - High Contrast */
+.light-mode .jjwxc-status-completed {
+  background-color: #ecfdf5 !important;
+  border-color: #6ee7b7 !important;
+  color: #047857 !important;
+  font-weight: 800 !important;
+}
+.light-mode .jjwxc-status-ongoing {
+  background-color: #f0f9ff !important;
+  border-color: #7dd3fc !important;
+  color: #0369a1 !important;
+  font-weight: 800 !important;
+}
+
+/* Light Mode Intro Box */
+.light-mode .jjwxc-intro-box {
+  background-color: #f8efe6 !important;
+  border-color: #e2cebf !important;
+  color: #2b141e !important;
+}
+
+/* Light Mode Close Button */
+.light-mode .jjwxc-btn-close {
+  background-color: #ebdcd0 !important;
+  border-color: #d9c4b5 !important;
+  color: #2b141e !important;
+  font-weight: 800 !important;
+}
+.light-mode .jjwxc-btn-close:hover {
+  background-color: #dec8b8 !important;
+  color: #1a0812 !important;
+}
+
+/* Banner Title Badge (VIP Kim Bảng, Top 100...) */
+.jjwxc-banner-badge {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  color: #6ee7b7 !important;
+  font-weight: 900 !important;
+}
+.light-mode .jjwxc-banner-badge {
+  background-color: #ecfdf5 !important;
+  border-color: #10b981 !important;
+  color: #065f46 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 1px 2px rgba(6, 95, 70, 0.08) !important;
+}
+
+/* Active tab text / buttons */
+.jjwxc-tab-active {
+  color: #34d399 !important;
+  font-weight: 800 !important;
+}
+.light-mode .jjwxc-tab-active {
+  color: #047857 !important;
+  font-weight: 800 !important;
+}
+
+/* Saved Novel Badge / Buttons */
+.jjwxc-saved-badge {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: #10b981 !important;
+  color: #34d399 !important;
+}
+.light-mode .jjwxc-saved-badge {
+  background-color: #ecfdf5 !important;
+  border-color: #059669 !important;
+  color: #065f46 !important;
+  font-weight: 800 !important;
+}
+
+/* Empty State Container (Khi không tìm thấy truyện) */
+.jjwxc-empty-box {
+  background-color: rgba(22, 10, 17, 0.6) !important;
+  border-color: #4a2135 !important;
+}
+.light-mode .jjwxc-empty-box {
+  background-color: #ffffff !important;
+  border-color: #e2cebf !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Subtle separator borders */
+.jjwxc-border-subtle {
+  border-color: #381928 !important;
+}
+.light-mode .jjwxc-border-subtle {
+  border-color: #ede2d7 !important;
+}
+
+/* Sort Toolbar Buttons */
+.jjwxc-sort-btn {
+  background-color: #210e19 !important;
+  border-color: #3b1828 !important;
+  color: #ffcfe3 !important;
+}
+.light-mode .jjwxc-sort-btn {
+  background-color: #f7ede3 !important;
+  border-color: #e2cebf !important;
+  color: #5a2c41 !important;
+}
+
+.jjwxc-sort-btn.active {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: #10b981 !important;
+  color: #34d399 !important;
+}
+.light-mode .jjwxc-sort-btn.active {
+  background-color: #ecfdf5 !important;
+  border-color: #059669 !important;
+  color: #065f46 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 1px 3px rgba(6, 95, 70, 0.08) !important;
+}
+

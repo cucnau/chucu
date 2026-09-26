@@ -1,0 +1,6 @@
+{
+  "name": "Chocoatl Studio - Web Đăng Truyện",
+  "description": "Nền tảng đăng và đọc truyện cá nhân đầy đủ tính năng: quản lý truyện, đăng chương, đọc truyện tranh/chữ, đánh mục, bình luận và theo dõi",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
